@@ -89,8 +89,8 @@ function putResults($putQuery)
 
 function xmlPutOutput($date, $rate, $code, $name, $country) //function for outputting in xml
 {
-    $xmlOutput = '<?xml version="1.0" encoding="ISO-8859-1"?>';
-    $xmlOutput .= '<method type="put">';
+    $xmlOutput = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xmlOutput .= '<action type="put">';
     $xmlOutput .= '<at>'.$date.'</at>';
     $xmlOutput .= '<rate>'.$rate.'</rate>';
     $xmlOutput .= '<curr>';
@@ -98,15 +98,15 @@ function xmlPutOutput($date, $rate, $code, $name, $country) //function for outpu
     $xmlOutput .= '<name>'.$name.'</name>';
     $xmlOutput .= '<loc>'.$country.'</loc>';
     $xmlOutput .= '</curr>';
-    $xmlOutput .= '</method>';
+    $xmlOutput .= '</action>';
     header('Content-Type: text/xml');
     echo $xmlOutput;
 }
 
 function jsonPutOutput($date, $rate, $code, $name, $country) //function for outputting in json
 {
-    $jsonOutput = '<?xml version="1.0" encoding="ISO-8859-1"?>';
-    $jsonOutput .= '<method type="put">';
+    $jsonOutput = '<?xml version="1.0" encoding="UTF-8"?>';
+    $jsonOutput .= '<action type="put">';
     $jsonOutput .= '<at>'.$date.'</at>';
     $jsonOutput .= '<rate>'.$rate.'</rate>';
     $jsonOutput .= '<curr>';
@@ -114,7 +114,7 @@ function jsonPutOutput($date, $rate, $code, $name, $country) //function for outp
     $jsonOutput .= '<name>'.$name.'</name>';
     $jsonOutput .= '<loc>'.$country.'</loc>';
     $jsonOutput .= '</curr>';
-    $jsonOutput .= '</method>';
+    $jsonOutput .= '</action>';
     header('Content-Type: application/json');
     $xml = simplexml_load_string($jsonOutput);
     $json = json_encode($xml, JSON_PRETTY_PRINT);

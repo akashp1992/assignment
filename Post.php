@@ -44,7 +44,7 @@ function postResults()
 
 function xmlPostOutput($date, $newRate, $oldRate, $code, $name, $country) //function for xml output
 {
-    $xmlOutput = '<?xml version="1.0" encoding="ISO-8859-1"?>';
+    $xmlOutput = '<?xml version="1.0" encoding="UTF-8"?>';
     $xmlOutput .= '<method type="post">';
     $xmlOutput .= '<at>'.$date.'</at>';
     $xmlOutput .= '<rate>'.$newRate.'</rate>';
@@ -61,8 +61,8 @@ function xmlPostOutput($date, $newRate, $oldRate, $code, $name, $country) //func
 
 function jsonPostOutput($date, $newRate, $oldRate, $code, $name, $country) //function for json output
 {
-    $jsonOutput = '<?xml version="1.0" encoding="ISO-8859-1"?>';
-    $jsonOutput .= '<method type="post">';
+    $jsonOutput = '<?xml version="1.0" encoding="UTF-8"?>';
+    $jsonOutput .= '<action type="post">';
     $jsonOutput .= '<at>'.$date.'</at>';
     $jsonOutput .= '<rate>'.$newRate.'</rate>';
     $jsonOutput .= '<old_rate>'.currOldRate.'</old_rate>';
@@ -71,7 +71,7 @@ function jsonPostOutput($date, $newRate, $oldRate, $code, $name, $country) //fun
     $jsonOutput .= '<name>'.$name.'</name>';
     $jsonOutput .= '<loc>'.$country.'</loc>';
     $jsonOutput .= '</curr>';
-    $jsonOutput .= '</method>';
+    $jsonOutput .= '</action>';
     header('Content-Type: application/json');
     $xml = simplexml_load_string($jsonOutput);
     $json = json_encode($xml, JSON_PRETTY_PRINT);

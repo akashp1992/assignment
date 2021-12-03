@@ -58,7 +58,7 @@ function getResults($query)
      }
      else //if format parameter exists, but the value is not json or xml
      {
-            $xmlError = '<?xml version="1.0" encoding="ISO-8859-1"?>'; 
+            $xmlError = '<?xml version="1.0" encoding="UTF-8"?>'; 
             $xmlError .= "<conv>";
             $xmlError .= "<error>";
             $xmlError .= "<code>".$xmlConfig->errorDesc->error[4]->errorCode."</code>";
@@ -72,7 +72,7 @@ function getResults($query)
 
 function xmlOutput($date, $curr, $name, $amount, $rate, $targetCurr, $targetCurrName, $finalAmount, $countryFrom, $countryTo) //function to output in xml
 {
-    $xmlCurr = '<?xml version="1.0" encoding="ISO-8859-1"?>';
+    $xmlCurr = '<?xml version="1.0" encoding="UTF-8"?>';
     $xmlCurr .= "<conv>";
     $xmlCurr .= "<at>".$date."</at>";
     $xmlCurr .= "<rate>".$rate."</rate>";
